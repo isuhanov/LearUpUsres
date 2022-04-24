@@ -1,0 +1,47 @@
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.22);
+    color: rgb(60, 60, 60);
+    background-color: rgb(234, 234, 234);
+}
+
+.user-info {
+    height: 100%;
+    // padding: 10px;
+    // background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    // width: 80%;
+    // text-align: start;
+}
+
+.user-info p{
+    font-size: 15px;
+    // background-color: red;
+}
+
+.user-fio {
+}
+.user-address {
+}
+
+.user-btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 35%;
+    height: 100%;
+    // background-color: red;
+}
