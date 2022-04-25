@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 900,
+    'GRAD' 0,
+    'opsz' 10
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +15,15 @@
     box-shadow: none;
     box-sizing: border-box;
 }
+
+.maintitle {
+    font-size: 30px;
+}
+
+.title{
+    font-size: 18px;
+}
+
 
 .btn {
     background-color: rgb(67, 67, 240);
@@ -29,8 +46,34 @@
     color: white;
 }
 
+.btn-close {
+    background-color: inherit;
+    color: rgb(240, 67, 67);
+    transition: all .2s ease-out;
+}
+
+.btn-close:hover {
+    background-color: rgb(240, 67, 67);
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-close:active {
+    outline: 2px solid rgb(240, 67, 67);
+    background-color: inherit;
+    color: rgb(201, 53, 53);
+}
+
 .label {
     text-decoration: underline;
     color: rgb(98, 98, 98);
     font-size: 13px;
+}
+
+.input {
+    outline: 1px solid rgb(78, 78, 78);
+    border-radius: 5px;
+    padding: 0 5px;
+    height: 25px;
+    width: 200px;
 }

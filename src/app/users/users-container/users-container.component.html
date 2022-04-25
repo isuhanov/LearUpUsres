@@ -1,4 +1,8 @@
 <div class="users-container">
-    <lu-user-card></lu-user-card>
+    <lu-user-card 
+                *ngFor="let user of users; index as index"
+                [id]="index" 
+                [fio]="user.fio" 
+                [address]="user.address"></lu-user-card>
 </div>
 

@@ -1,10 +1,16 @@
 <div class="user-card">
     <div class="user-info">
-        <p class="user-fio"><span class="label">ФИО:</span> Суханов Игнат Андреевич</p>
-        <p class="user-address"><span class="label">Адрес:</span> Ул. Федора Полетаева, 25, 138</p>
+        <p class="user-fio"><span class="label">ФИО:</span> {{ fio }}</p>
+        <p class="user-address"><span class="label">Адрес:</span> {{ address }}</p>
     </div>
     <div class="user-btn-container">
-        <button class="btn">Изменить ФИО</button>
-        <button class="btn">Изменить адрес</button>
+        <button type="button" class="btn" (click)="onClickChange()">Изменить</button>
     </div>
 </div>
+
+<lu-user-modal 
+    *ngIf="isModalOpen"
+    [id]="id" 
+    [fio]="fio" 
+    [address]="address"
+    (modalClose)="isModalOpen=false"></lu-user-modal>
