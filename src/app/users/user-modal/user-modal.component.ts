@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { DadataAddress, DadataConfig, DadataSuggestion, DadataType } from '@kolkov/ngx-dadata';
 
 @Component({
   selector: 'lu-user-modal',
@@ -7,6 +7,10 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./user-modal.component.scss']
 })
 export class UserModalComponent implements OnInit {
+  config: DadataConfig = {
+    apiKey: 'c2e5ee63d9065eed0e5d62a51054901ddd64c398',
+    type: DadataType.address
+  };
 
   @Input()
   public id: number| null = null;
@@ -22,9 +26,13 @@ export class UserModalComponent implements OnInit {
 
   constructor() { }
 
+  public onAddressSelected(event: DadataSuggestion) {
+    const addressData = event.data as DadataAddress;
+    console.log(addressData);
+  }
+
   public onClickSave() {
     console.log(this.id, this.fio, this.address);
-
     this.modalClose.emit();
   }
 

@@ -16,7 +16,8 @@
             </div>
             <div class="field">
                 <label for="address">Адрес:</label>
-                <input type="text" id="address" name="address" class="input" [(ngModel)]="address">
+                <ngx-dadata [config]="config" [(ngModel)]="address" name="address" class="input"></ngx-dadata>
+                <!-- <input type="text" id="address" name="address" class="input" [(ngModel)]="address"> -->
             </div>
             <button type="button" class="btn" (click)="onClickSave()">Сохранить</button>
         </form>
