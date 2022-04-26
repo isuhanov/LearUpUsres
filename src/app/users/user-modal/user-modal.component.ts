@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DadataAddress, DadataConfig, DadataSuggestion, DadataType } from '@kolkov/ngx-dadata';
+import { DbUserService } from 'src/app/lib/db-user.service';
 
 @Component({
   selector: 'lu-user-modal',
@@ -13,18 +14,18 @@ export class UserModalComponent implements OnInit {
   };
 
   @Input()
-  public id: number| null = null;
+  public id: number = 0;
 
   @Input()
-  public fio: string | null = null;
+  public fio: string = '';
 
   @Input()
-  public address: string | null = null;
+  public address: string = '';
 
   @Output()
   modalClose = new EventEmitter()
 
-  constructor() { }
+  constructor(private dbUserServices: DbUserService) { }
 
   public onAddressSelected(event: DadataSuggestion) {
     const addressData = event.data as DadataAddress;
@@ -32,7 +33,12 @@ export class UserModalComponent implements OnInit {
   }
 
   public onClickSave() {
-    console.log(this.id, this.fio, this.address);
+    this.dbUserServices.update(this.id, { fio: this.fio, address: this.address}).then(()=>{
+      console.log(this.id, this.fio, this.address);
+    }).catch((reason)=>{
+      console.log(reason);
+      
+    })
     this.modalClose.emit();
   }
 

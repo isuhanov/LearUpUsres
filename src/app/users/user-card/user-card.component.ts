@@ -9,16 +9,13 @@ export class UserCardComponent implements OnInit {
   public isModalOpen:boolean = false;
 
   @Input()
-  public id: number| null = null;
+  public id: number = 0;
 
   @Input()
-  public fio: string | null = null;
+  public fio: string = '';
 
   @Input()
-  public address: string | null = null;
-  
-  // @Output()
-  // changeFio = new EventEmitter();
+  public address: string = '';
 
   constructor() { }
 
