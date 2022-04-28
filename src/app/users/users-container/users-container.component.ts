@@ -12,10 +12,19 @@ export class UsersContainerComponent implements AfterViewInit {
 
   constructor(private dbUserServices: DbUserService) { }
 
-  ngAfterViewInit(): void {
-    this.dbUserServices.readAll().then((users:readonly User[]) => {
-      this.users = users;
+  public addUsers(amount: number) {
+    this.dbUserServices.getUsers(amount, this.users.length).then((users:readonly User[]) => {
+      this.users = this.users.concat(users);
     })
+  }
+
+  ngAfterViewInit(): void {
+    this.addUsers(8);
+
+    document.addEventListener('scroll', ()=>{
+      let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+      windowRelativeBottom < document.documentElement.clientHeight + 100 ? this.addUsers(2) : null;
+    });
   }
 
 }

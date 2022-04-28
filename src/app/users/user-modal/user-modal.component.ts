@@ -33,12 +33,13 @@ export class UserModalComponent implements OnInit {
   }
 
   public onClickSave() {
-    this.dbUserServices.update(this.id, { fio: this.fio, address: this.address}).then(()=>{
+    this.dbUserServices.update({ fio: this.fio, address: this.address, id:this.id}).then(()=>{
       console.log(this.id, this.fio, this.address);
     }).catch((reason)=>{
       console.log(reason);
       
     })
+    
     this.modalClose.emit();
   }
 
