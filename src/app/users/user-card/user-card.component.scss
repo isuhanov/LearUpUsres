@@ -14,21 +14,28 @@
 
 .user-info {
     height: 100%;
-    // padding: 10px;
-    // background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    // width: 80%;
-    // text-align: start;
+    p {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        padding: 0 10px;
+        font-size: 15px;
+        text-align: right;
+    }
+
+    .user-fio {
+        font-size: 17px;
+        color: rgb(8, 8, 142);
+    }
 }
 
-.user-info p{
-    font-size: 15px;
-    // background-color: red;
-}
 
 .user-btn-container {
     display: flex;
@@ -38,5 +45,4 @@
     gap: 30px;
     width: 35%;
     height: 100%;
-    // background-color: red;
 }

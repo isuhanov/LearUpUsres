@@ -16,6 +16,10 @@ export class DbUserService {
     return firstValueFrom(this.httpClient.put<User>(`${ this.apiServerPath }/users/${ user.id }`, user))
   }
 
+  public getUser(id: number): Promise<User> {
+    return firstValueFrom(this.httpClient.get<User>(`${ this.apiServerPath }/users/${id}`))
+  }
+
   public getUsers(amount: number, start: number = 0): Promise<readonly User[]> {
     return firstValueFrom(this.httpClient.get<readonly User[]>(`${ this.apiServerPath }/users?_start=${start}&_limit=${amount}`))
   }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { User } from 'src/app/domain';
 import { DbUserService } from 'src/app/lib/db-user.service';
 
@@ -9,6 +9,9 @@ import { DbUserService } from 'src/app/lib/db-user.service';
 })
 export class UsersContainerComponent implements AfterViewInit {
   public users: readonly User[] = [];
+  public cards:any;
+  public pastUsersLen:number = 0;
+  public i:number = 0;
 
   constructor(private dbUserServices: DbUserService) { }
 
@@ -18,12 +21,19 @@ export class UsersContainerComponent implements AfterViewInit {
     })
   }
 
-  ngAfterViewInit(): void {
-    this.addUsers(8);
+  public print(i:number) { 
+    console.log(this.cards.item(i));
+  }
 
-    document.addEventListener('scroll', ()=>{
-      let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
-      windowRelativeBottom < document.documentElement.clientHeight + 100 ? this.addUsers(2) : null;
+  ngAfterViewInit(): void {
+    this.addUsers(5);
+    
+    document.addEventListener('scroll', () => {
+      this.cards = document.getElementsByClassName('user-card');
+      if (this.cards.item(this.i).getBoundingClientRect().bottom < 100) {
+        this.addUsers(1)
+        this.i += 1;
+      }
     });
   }
 

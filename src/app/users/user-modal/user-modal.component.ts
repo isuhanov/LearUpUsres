@@ -29,12 +29,11 @@ export class UserModalComponent implements OnInit {
 
   public onAddressSelected(event: DadataSuggestion) {
     const addressData = event.data as DadataAddress;
-    console.log(addressData);
   }
 
   public onClickSave() {
     this.dbUserServices.update({ fio: this.fio, address: this.address, id:this.id}).then(()=>{
-      console.log(this.id, this.fio, this.address);
+      console.log(`Успешное обновление пользователя с id = ${this.id}`);
     }).catch((reason)=>{
       console.log(reason);
       

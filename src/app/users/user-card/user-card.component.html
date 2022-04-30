@@ -1,7 +1,13 @@
 <div class="user-card">
     <div class="user-info">
-        <p class="user-fio"><span class="label">ФИО:</span> {{ fio }}</p>
-        <p class="user-address"><span class="label">Адрес:</span> {{ address }}</p>
+        <p class="user-fio"><span class="label">
+            <span>ФИО:</span> 
+            </span> {{ fio }}
+        </p>
+        <p class="user-address"><span class="label">
+            <span>Адрес:</span>
+            </span> {{ address | slice: 0:59 }}
+        </p>
     </div>
     <div class="user-btn-container">
         <button type="button" class="btn" (click)="onClickChange()">Изменить</button>
@@ -13,4 +19,4 @@
     [id]="id" 
     [fio]="fio" 
     [address]="address"
-    (modalClose)="isModalOpen=false"></lu-user-modal>
+    (modalClose)="onModalClose()"></lu-user-modal>
