@@ -23,6 +23,7 @@ export class UserCardComponent implements OnInit {
 
   public onClickChange() {
     this.isModalOpen = !this.isModalOpen;
+    document.body.style.overflow = 'hidden';
   }
 
   public onModalClose() {
@@ -30,6 +31,7 @@ export class UserCardComponent implements OnInit {
       this.fio = user.fio;
       this.address = user.address;
     });
+    document.body.style.overflow = 'auto';
     this.isModalOpen=false
   }
 
