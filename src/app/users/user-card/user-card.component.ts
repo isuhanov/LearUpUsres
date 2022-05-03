@@ -26,12 +26,11 @@ export class UserCardComponent implements OnInit {
     document.body.style.overflow = 'hidden';
   }
 
-  public onModalClose() {
-    this.dbUserServices.getUser(this.id).then((user:User)=>{
+  public onModalClose(user: User) {
+    if (user) {
       this.fio = user.fio;
       this.address = user.address;
-    });
-    document.body.style.overflow = 'auto';
+    }
     this.isModalOpen=false
   }
 
