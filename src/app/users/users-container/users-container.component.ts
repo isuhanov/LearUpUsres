@@ -30,7 +30,7 @@ export class UsersContainerComponent implements AfterViewInit {
     
     document.addEventListener('scroll', () => {
       this.cards = document.getElementsByClassName('user-card');
-      if (this.cards.item(this.i).getBoundingClientRect().bottom < 100) {
+      if (this.cards.item(this.i).getBoundingClientRect().bottom < 130) {
         this.addUsers(1)
         this.i += 1;
       }

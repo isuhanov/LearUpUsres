@@ -32,6 +32,7 @@ export class UserCardComponent implements OnInit {
       this.address = user.address;
     }
     this.isModalOpen=false
+    document.body.style.overflow = 'auto';
   }
 
   ngOnInit(): void {
