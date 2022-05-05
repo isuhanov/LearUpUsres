@@ -12,11 +12,11 @@
             </div>
             <div class="field">
                 <label for="fio">ФИО:</label>
-                <input type="text" id="fio" name="fio" class="input" [(ngModel)]="fio">
+                <input type="text" id="fio" name="fio" class="input" required [(ngModel)]="fio">
             </div>
             <div class="field">
                 <label for="address">Адрес:</label>
-                <ngx-dadata [config]="config" [(ngModel)]="address" name="address" class="input"></ngx-dadata>
+                <ngx-dadata [config]="config" [(ngModel)]="address" required name="address" class="input"></ngx-dadata>
                 <!-- <input type="text" id="address" name="address" class="input" [(ngModel)]="address"> -->
             </div>
             <button type="button" class="btn" (click)="onClickSave()">Сохранить</button>

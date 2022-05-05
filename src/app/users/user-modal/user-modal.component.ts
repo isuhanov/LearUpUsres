@@ -32,12 +32,16 @@ export class UserModalComponent implements OnInit {
   }
 
   public onClickSave() {
-    this.dbUserServices.update({ fio: this.fio, address: this.address, id:this.id}).then(()=>{
-      console.log(`Успешное обновление пользователя с id = ${this.id}`);
-      this.modalClose.emit({ fio: this.fio, address: this.address, id:this.id});
-    }).catch((reason)=>{
-      console.log(reason);
-    })
+    if (this.fio.trim() && this.address.trim()){
+      this.dbUserServices.update({ fio: this.fio, address: this.address, id:this.id}).then(()=>{
+        console.log(`Успешное обновление пользователя с id = ${this.id}`);
+        this.modalClose.emit({ fio: this.fio, address: this.address, id:this.id});
+      }).catch((reason)=>{
+        console.log(reason);
+      })
+    } else {
+      alert('Форма должна быть полностью заполнена');
+    }
     
   }
 
